@@ -1,0 +1,35 @@
+/* MYTAB PHASE 6.2 — CUSTOM BACKGROUND STUDIO */
+.mytab-gradient-studio { margin-top: 22px; }
+.mytab-gradient-preview {
+    width: 100%; height: 112px; margin: 15px 0 13px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,.16));
+    border-radius: 14px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.mytab-gradient-presets {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px;
+}
+.mytab-gradient-preset {
+    min-width: 0; display: flex; align-items: center; gap: 8px;
+    padding: 8px; border: 1px solid var(--glass-border, rgba(255,255,255,.16));
+    border-radius: 10px; color: var(--text, #fff); background: rgba(255,255,255,.045);
+    font: inherit; font-size: 10px; text-align: left; cursor: pointer;
+    transition: border-color .16s ease, background .16s ease, transform .16s ease;
+}
+.mytab-gradient-preset:hover { background: rgba(255,255,255,.09); transform: translateY(-1px); }
+.mytab-gradient-preset.is-selected { border-color: var(--mytab-accent, #a5b8ff); background: rgba(165,184,255,.12); }
+.mytab-preset-swatch { width: 27px; height: 27px; flex: 0 0 27px; border-radius: 7px; border: 1px solid rgba(255,255,255,.2); }
+.mytab-gradient-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+.mytab-gradient-colour { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted, rgba(255,255,255,.58)); font-size: 11px; }
+.mytab-gradient-colour input { width: 42px; height: 32px; padding: 2px; border: 1px solid var(--glass-border, rgba(255,255,255,.16)); border-radius: 8px; background: transparent; cursor: pointer; }
+.mytab-gradient-angle-row { display: flex; justify-content: space-between; margin-top: 17px; color: var(--muted, rgba(255,255,255,.58)); font-size: 11px; }
+.mytab-gradient-angle-row output { color: var(--text, #fff); font-weight: 600; }
+.mytab-gradient-angle { width: 100%; margin-top: 10px; }
+.mytab-gradient-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 17px; }
+.mytab-gradient-actions .primary-button { min-height: 38px; padding: 0 15px; }
+.mytab-gradient-note { margin-top: 11px; color: var(--muted, rgba(255,255,255,.58)); font-size: 10px; line-height: 1.6; }
+body.mytab-gradient-active .wallpaper-layer { visibility: hidden; }
+@media (max-width: 480px) {
+    .mytab-gradient-presets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mytab-gradient-actions { align-items: stretch; flex-direction: column; }
+    .mytab-gradient-actions button { width: 100%; }
+}

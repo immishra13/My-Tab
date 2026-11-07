@@ -1,0 +1,408 @@
+
+/* ==========================================
+   MYTAB PHASE 4 - PRODUCTIVITY DASHBOARD
+========================================== */
+
+/* SEARCH ENGINE SELECTOR */
+
+.search-engine-select {
+    max-width: 112px;
+    padding: 8px 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+
+    font-family: inherit;
+    font-size: 11px;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.search-engine-select option {
+    color: white;
+    background: #202638;
+}
+
+
+/* PRODUCTIVITY SECTION */
+
+.productivity-section {
+    width: 100%;
+    margin-top: 65px;
+    padding-bottom: 30px;
+}
+
+.productivity-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.productivity-eyebrow {
+    color: #a5b8ff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.productivity-heading h2 {
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+}
+
+.productivity-status {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+
+/* WIDGET GRID */
+
+.productivity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+    text-align: left;
+}
+
+.productivity-card {
+    min-width: 0;
+    padding: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 19px;
+
+    background: rgba(255, 255, 255, 0.085);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+/* WIDGET HEADERS */
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 19px;
+}
+
+.widget-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.widget-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 19px;
+}
+
+.notes-icon {
+    color: #c5d0ff;
+}
+
+.todo-icon {
+    color: #9de7c0;
+}
+
+.widget-title h3 {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.widget-title p {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 10px;
+}
+
+.widget-status {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+
+/* QUICK NOTES */
+
+.notes-input {
+    width: 100%;
+    min-height: 155px;
+    resize: vertical;
+
+    padding: 14px;
+
+    color: white;
+    background: rgba(10, 14, 25, 0.22);
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.notes-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.notes-input:focus {
+    border-color: rgba(165, 184, 255, 0.55);
+}
+
+.widget-footer,
+.todo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 11px;
+
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 9px;
+}
+
+
+/* TODO FORM */
+
+.todo-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+.todo-form input {
+    flex: 1;
+    min-width: 0;
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+
+    outline: none;
+
+    color: white;
+    background: rgba(10, 14, 25, 0.22);
+
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.todo-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.todo-form input:focus {
+    border-color: rgba(165, 184, 255, 0.55);
+}
+
+.todo-form button {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+
+    font-size: 22px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.todo-form button:hover {
+    background: rgba(255, 255, 255, 0.27);
+}
+
+
+/* TODO LIST */
+
+.todo-list {
+    max-height: 190px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.todo-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.todo-item {
+    min-height: 39px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+
+    background: rgba(10, 14, 25, 0.19);
+
+    transition: 0.2s;
+}
+
+.todo-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.todo-item input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+
+    accent-color: #9de7c0;
+    cursor: pointer;
+}
+
+.todo-text {
+    flex: 1;
+    min-width: 0;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.todo-item.completed .todo-text {
+    color: rgba(255, 255, 255, 0.38);
+    text-decoration: line-through;
+}
+
+.todo-delete {
+    width: 24px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 7px;
+
+    color: rgba(255, 255, 255, 0.55);
+    background: transparent;
+
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.todo-delete:hover {
+    color: #ff9999;
+    background: rgba(255, 100, 100, 0.12);
+}
+
+.todo-empty {
+    padding: 22px 10px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 11px;
+}
+
+.todo-footer {
+    padding-top: 11px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.clear-completed {
+    border: none;
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family: inherit;
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+.clear-completed:hover {
+    color: white;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .productivity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .productivity-section {
+        margin-top: 45px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .search-engine-select {
+        max-width: 84px;
+        padding: 7px 4px;
+        font-size: 9px;
+    }
+
+    .productivity-card {
+        padding: 16px;
+    }
+
+    .productivity-heading h2 {
+        font-size: 18px;
+    }
+
+    .productivity-status {
+        font-size: 8px;
+    }
+
+}

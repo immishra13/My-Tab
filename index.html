@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10131c">
+
+    <title>MyTab - Personal Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/phase4.css">
+</head>
+
+<body>
+
+    <div class="wallpaper-layer" id="wallpaperLayer"></div>
+    <div class="background-overlay" id="backgroundOverlay"></div>
+
+    <!-- HEADER -->
+
+    <header class="top-bar">
+
+        <div class="brand">
+            <div class="brand-icon">M</div>
+            <span>MyTab</span>
+        </div>
+
+        <button
+            class="settings-button"
+            id="settingsButton"
+            aria-label="Open settings"
+            title="Customise MyTab"
+        >
+            <span>⚙</span>
+        </button>
+
+    </header>
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <main class="main-container">
+
+        <section class="hero">
+
+            <!-- CLOCK -->
+
+            <div class="greeting">
+                <p id="greetingText">Good evening</p>
+                <h1 id="clock">12:00:00</h1>
+                <span id="date">Sunday, November 1</span>
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <form id="searchForm" class="search-container">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search anything..."
+                    autocomplete="off"
+                    aria-label="Search"
+                >
+
+                <select
+                    id="searchEngine"
+                    class="search-engine-select"
+                    aria-label="Choose search engine"
+                    title="Choose search engine"
+                >
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="duckduckgo">DuckDuckGo</option>
+                    <option value="yahoo">Yahoo</option>
+                </select>
+
+                <button type="submit" aria-label="Search">↗</button>
+
+            </form>
+
+
+            <!-- SHORTCUTS -->
+
+            <section class="shortcuts-section">
+
+                <div class="shortcuts-header">
+
+                    <div class="shortcuts-heading">
+                        <span>YOUR SHORTCUTS</span>
+                        <small id="shortcutCount">6 websites</small>
+                    </div>
+
+                    <div class="shortcut-toolbar">
+
+                        <label class="limit-control">
+                            <span>Show</span>
+
+                            <select id="shortcutLimit">
+                                <option value="6">6</option>
+                                <option value="8">8</option>
+                                <option value="12">12</option>
+                                <option value="0">All</option>
+                            </select>
+                        </label>
+
+                        <button id="addShortcutButton">+ Add</button>
+
+                    </div>
+
+                </div>
+
+                <div id="shortcutsContainer" class="shortcuts-grid"></div>
+
+                <p class="shortcut-hint" id="shortcutHint">
+                    Drag shortcuts to rearrange them.
+                </p>
+
+            </section>
+
+
+            <!-- PHASE 4 PRODUCTIVITY WIDGETS -->
+
+            <section class="productivity-section" id="productivitySection">
+
+                <div class="productivity-heading">
+                    <div>
+                        <span class="productivity-eyebrow">YOUR WORKSPACE</span>
+                        <h2>Stay productive.</h2>
+                    </div>
+
+                    <span class="productivity-status">PERSONAL DASHBOARD</span>
+                </div>
+
+
+                <div class="productivity-grid">
+
+                    <!-- QUICK NOTES -->
+
+                    <article class="productivity-card notes-card">
+
+                        <div class="widget-header">
+
+                            <div class="widget-title">
+                                <div class="widget-icon notes-icon">✎</div>
+
+                                <div>
+                                    <h3>Quick Notes</h3>
+                                    <p>Your thoughts, in one place.</p>
+                                </div>
+                            </div>
+
+                            <span class="widget-status" id="notesStatus">
+                                Saved
+                            </span>
+
+                        </div>
+
+                        <textarea
+                            id="quickNotes"
+                            class="notes-input"
+                            placeholder="Write down an idea, reminder or anything you don't want to forget..."
+                            maxlength="10000"
+                        ></textarea>
+
+                        <div class="widget-footer">
+                            <span id="notesCount">0 / 10000</span>
+                            <span>Auto-save enabled</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- TODO LIST -->
+
+                    <article class="productivity-card todo-card">
+
+                        <div class="widget-header">
+
+                            <div class="widget-title">
+                                <div class="widget-icon todo-icon">✓</div>
+
+                                <div>
+                                    <h3>To-Do List</h3>
+                                    <p>Small steps. Big progress.</p>
+                                </div>
+                            </div>
+
+                            <span class="widget-status" id="todoCount">
+                                0 tasks
+                            </span>
+
+                        </div>
+
+
+                        <form id="todoForm" class="todo-form">
+
+                            <input
+                                type="text"
+                                id="todoInput"
+                                placeholder="Add a new task..."
+                                maxlength="150"
+                                autocomplete="off"
+                                required
+                            >
+
+                            <button type="submit" aria-label="Add task">
+                                +
+                            </button>
+
+                        </form>
+
+
+                        <div
+                            id="todoList"
+                            class="todo-list"
+                            aria-live="polite"
+                        ></div>
+
+
+                        <div class="todo-footer">
+                            <span id="todoProgress">No tasks yet</span>
+
+                            <button
+                                type="button"
+                                id="clearCompleted"
+                                class="clear-completed"
+                            >
+                                Clear completed
+                            </button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="bottom-bar">
+        <span>Made for your space.</span>
+        <span>MYTAB © 2026</span>
+    </footer>
+
+
+    <!-- ADD / EDIT SHORTCUT DIALOG -->
+
+    <dialog id="shortcutDialog" class="custom-dialog">
+
+        <form id="shortcutForm">
+
+            <h2 id="shortcutDialogTitle">Add a website</h2>
+
+            <p class="dialog-description">
+                Personalise your favourite website shortcut.
+            </p>
+
+            <label for="siteName">Website name</label>
+
+            <input
+                id="siteName"
+                type="text"
+                placeholder="Example: YouTube"
+                maxlength="30"
+                required
+            >
+
+            <label for="siteUrl">Website URL</label>
+
+            <input
+                id="siteUrl"
+                type="text"
+                placeholder="https://example.com"
+                required
+            >
+
+            <label for="siteIcon">Custom icon URL <span>(optional)</span></label>
+
+            <input
+                id="siteIcon"
+                type="url"
+                placeholder="https://example.com/icon.png"
+            >
+
+            <p class="input-hint">
+                Leave empty to automatically use the website favicon.
+            </p>
+
+            <div class="dialog-actions">
+
+                <button type="button" id="cancelShortcut">
+                    Cancel
+                </button>
+
+                <button type="submit" class="primary-button" id="saveShortcutButton">
+                    Add website
+                </button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+
+    <!-- CUSTOMISATION STUDIO -->
+
+    <dialog id="settingsDialog" class="settings-dialog">
+
+        <div class="settings-content">
+
+            <div class="settings-heading">
+
+                <div>
+                    <span class="settings-eyebrow">
+                        PERSONALISE YOUR SPACE
+                    </span>
+
+                    <h2>Customisation Studio</h2>
+
+                    <p>Make your browser feel like yours.</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="closeSettings"
+                    class="close-settings"
+                    aria-label="Close settings"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <section class="setting-section">
+
+                <div class="setting-title">
+                    <div>
+                        <h3>Background wallpaper</h3>
+                        <p>Choose your favourite image.</p>
+                    </div>
+
+                    <span class="setting-icon">▧</span>
+                </div>
+
+                <label class="upload-area" for="wallpaperInput">
+
+                    <span class="upload-icon">↑</span>
+
+                    <strong>Upload your wallpaper</strong>
+
+                    <span>JPG, PNG or WEBP · Maximum 10 MB</span>
+
+                    <input
+                        type="file"
+                        id="wallpaperInput"
+                        accept="image/jpeg,image/png,image/webp"
+                        hidden
+                    >
+
+                </label>
+
+                <div class="wallpaper-actions">
+
+                    <span id="wallpaperStatus">
+                        Default background active
+                    </span>
+
+                    <button
+                        type="button"
+                        id="removeWallpaper"
+                        class="text-button"
+                    >
+                        Remove wallpaper
+                    </button>
+
+                </div>
+
+            </section>
+
+            <div class="settings-divider"></div>
+
+            <section class="setting-section">
+
+                <div class="slider-heading">
+                    <div>
+                        <h3>Brightness</h3>
+                        <p>Adjust wallpaper brightness.</p>
+                    </div>
+
+                    <span id="brightnessValue">100%</span>
+                </div>
+
+                <input
+                    type="range"
+                    id="brightnessSlider"
+                    min="30"
+                    max="150"
+                    value="100"
+                    class="custom-slider"
+                >
+
+            </section>
+
+            <section class="setting-section">
+
+                <div class="slider-heading">
+                    <div>
+                        <h3>Background blur</h3>
+                        <p>Control the softness of your wallpaper.</p>
+                    </div>
+
+                    <span id="blurValue">0 px</span>
+                </div>
+
+                <input
+                    type="range"
+                    id="blurSlider"
+                    min="0"
+                    max="15"
+                    value="0"
+                    class="custom-slider"
+                >
+
+            </section>
+
+            <section class="setting-section">
+
+                <div class="slider-heading">
+                    <div>
+                        <h3>Dark overlay</h3>
+                        <p>Keep your text readable.</p>
+                    </div>
+
+                    <span id="overlayValue">22%</span>
+                </div>
+
+                <input
+                    type="range"
+                    id="overlaySlider"
+                    min="0"
+                    max="85"
+                    value="22"
+                    class="custom-slider"
+                >
+
+            </section>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-footer">
+
+                <span>Changes are saved automatically.</span>
+
+                <button
+                    type="button"
+                    id="resetSettings"
+                    class="reset-button"
+                >
+                    ↺ Reset appearance
+                </button>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+
+    <!-- EXISTING PHASE 1-3 SCRIPTS -->
+
+    <script src="js/background.js"></script>
+    <script src="js/shortcuts.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- NEW PHASE 4 SCRIPT -->
+
+    <script src="js/phase4.js"></script>
+    <script src="js/phase42.js"></script>
+    <script src="js/phase5.js"></script>
+    <script src="js/phase6.js"></script>
+    <script src="js/phase62.js"></script>
+</body>
+</html>

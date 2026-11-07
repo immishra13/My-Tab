@@ -1,0 +1,103 @@
+/* ==========================================
+   MYTAB PHASE 6.1 - DRAG & DROP LAYOUT
+========================================== */
+
+.mytab-sortable-item {
+    position: relative;
+    transition: transform 180ms ease, outline-color 180ms ease, opacity 180ms ease;
+}
+
+.mytab-drag-handle {
+    position: absolute;
+    z-index: 8;
+    top: 9px;
+    right: 9px;
+    width: 29px;
+    height: 29px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--glass-border, rgba(255,255,255,.16));
+    border-radius: 8px;
+    color: var(--text, #fff);
+    background: rgba(15, 20, 33, .52);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font: 700 17px/1 Inter, ui-sans-serif, system-ui, sans-serif;
+    cursor: grab;
+    opacity: .58;
+    transition: opacity 160ms ease, background 160ms ease, transform 160ms ease;
+    touch-action: none;
+}
+
+.mytab-sortable-item:hover > .mytab-drag-handle,
+.mytab-drag-handle:focus-visible {
+    opacity: 1;
+}
+
+.mytab-drag-handle:active {
+    cursor: grabbing;
+    transform: scale(.94);
+}
+
+.mytab-is-dragging {
+    opacity: .42;
+    outline: 2px dashed var(--mytab-accent, #a5b8ff);
+    outline-offset: 5px;
+}
+
+.mytab-drop-target {
+    outline: 2px dashed var(--mytab-accent, #a5b8ff);
+    outline-offset: 4px;
+    background-color: rgba(255, 255, 255, .035);
+}
+
+.mytab-layout-help {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 14px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,.16));
+    border-radius: 13px;
+    background: rgba(255,255,255,.045);
+}
+
+.mytab-layout-help-icon {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    color: var(--mytab-accent, #a5b8ff);
+    background: rgba(255,255,255,.08);
+    font-size: 19px;
+}
+
+.mytab-layout-help strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.mytab-layout-help p {
+    margin-top: 5px;
+    color: var(--muted, rgba(255,255,255,.58));
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .mytab-drag-handle {
+        opacity: .9;
+        width: 27px;
+        height: 27px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mytab-sortable-item,
+    .mytab-drag-handle {
+        transition: none;
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "MyTab - Personal Dashboard",
+  "version": "1.2.0",
+  "description": "Your browser, your style.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.open-meteo.com/*"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
