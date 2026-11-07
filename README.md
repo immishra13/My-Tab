@@ -1,50 +1,74 @@
+<div align="center">
+
 # MyTab
 
-MyTab is a personal dashboard that replaces the browser's new-tab page. It is a dependency-free Manifest V3 extension for Chrome and other Chromium-based browsers.
+### A calmer, more personal new tab.
 
-## Features
+Your shortcuts, notes, tasks, calendar, and local weather in one customizable dashboard.
 
-- Live clock, date, and greeting
-- Search with Google, Bing, DuckDuckGo, or Yahoo
-- Editable, reorderable website shortcuts
-- Quick notes and a to-do list
-- Optional local weather and a calendar with events
-- Wallpaper upload, appearance controls, themes, and dashboard layout customisation
+[![Validation](https://github.com/immishra13/My-Tab/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/immishra13/My-Tab/actions/workflows/validate.yml)
+![Chrome Extension](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
+![No dependencies](https://img.shields.io/badge/dependencies-none-6c8cff)
 
-## Install from source
+</div>
+
+---
+
+## Take a look
+
+The full dashboard at a glance:
+
+<p align="center">
+  <img src="assets/screenshots/dashboard.png" alt="MyTab dashboard with search, shortcuts, notes, tasks, weather, and calendar" width="780">
+</p>
+
+<p align="center"><sub>Preview with example notes, tasks, and calendar events. Weather is illustrative.</sub></p>
+
+Make the background your own:
+
+<p align="center">
+  <img src="assets/screenshots/customize.png" alt="MyTab custom background studio with gradient presets and colour controls" width="680">
+</p>
+
+## What you get
+
+| Your day | Your space |
+| --- | --- |
+| Live clock, date, and greeting | Wallpapers, gradient presets, and appearance controls |
+| Search with Google, Bing, DuckDuckGo, or Yahoo | Rearrangeable dashboard and shortcuts |
+| Quick notes and a to-do list | Custom themes, accent colours, and widget visibility |
+| Monthly calendar and optional local weather | Preferences saved on your device |
+
+## Get started
 
 1. Download or clone this repository.
-2. Open `chrome://extensions` in Chrome (or `edge://extensions` in Edge).
+2. Open `chrome://extensions` in Chrome, or `edge://extensions` in Edge.
 3. Turn on **Developer mode**.
-4. Select **Load unpacked** and choose the `MyTab` project folder containing `manifest.json`.
-5. Open a new tab to use MyTab.
+4. Choose **Load unpacked** and select the project folder containing `manifest.json`.
+5. Open a new tab. After changing files, reload MyTab from the extensions page.
 
-After making changes, select **Reload** on the extension's card to load the updated files.
+## Privacy
 
-## Privacy and permissions
+- Preferences, shortcuts, notes, tasks, and calendar events are stored locally with Chrome Storage. Uploaded wallpapers stay in the extension's IndexedDB database.
+- Weather is optional. When you request it, MyTab asks the browser for your location and sends the coordinates to Open-Meteo for a forecast. MyTab does not save your coordinates.
+- Search terms go to the search provider you select. Website favicons are loaded from Google unless you set a custom icon URL.
+- No analytics, ads, accounts, or backend service.
 
-- MyTab uses the Chrome `storage` permission to keep your preferences, shortcuts, notes, tasks, and calendar events on your device. Uploaded wallpapers are stored in the extension's IndexedDB database.
-- Weather is optional. When weather is requested, MyTab asks the browser for your location and sends the coordinates to the Open-Meteo API to retrieve a forecast. Coordinates are kept in memory by MyTab and are not saved as dashboard data.
-- Search terms are sent to the search provider you select.
-- Website shortcuts use Google's favicon service by default. A custom icon URL, if provided, is requested from that URL instead.
-- MyTab does not include analytics, advertising, accounts, or a backend service.
+## Development
 
-## Development checks
-
-No package installation or build step is required. With Node.js installed, run:
+No package install or build step is needed. With Node.js installed, validate the manifest, referenced files, and JavaScript syntax:
 
 ```sh
 node scripts/validate-project.mjs
 ```
 
-This checks the extension manifest, local resources referenced by `index.html`, and JavaScript syntax. GitHub Actions runs the same check for pushes and pull requests.
-
-## Project structure
+GitHub Actions runs this check on every push and pull request.
 
 ```text
-manifest.json       Extension metadata and permissions
-index.html          New-tab dashboard markup
-css/                Dashboard and widget styles
-js/                 Dashboard features and browser storage helpers
-scripts/            Local project validation
+manifest.json   Chrome extension configuration
+index.html      New-tab dashboard
+css/            Dashboard and widget styles
+js/             Dashboard features and browser storage
+assets/         Project images and screenshots
+scripts/        Local validation check
 ```
